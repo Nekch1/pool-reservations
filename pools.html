@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бассейны</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="./index.html">
+                <img src="img/logo.png" class="logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Контакты</a></li>
+                    <li><a href="pools.html">Бассейны</a></li>
+                    <li><a href="info.html">Информация</a></li>
+                    <li><a href="#">Личный кабинет</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="filter-form">
+                <div class="search">
+                    <form>
+                        <input type="text" name="" id="searchPool" class="form-item form-search">
+                    </form>
+                    <button type="button" class="" onclick="searchByName()">Поиск по названию</button>
+                </div>
+                <h3>Фильтр по цене</h3>
+                <form id="filterForm">
+                    <label for="maxPrice">Максимальная цена (руб.):</label>
+                    <input type="number" id="maxPrice" class="form-item" placeholder="Введите цену">
+                    <button type="button" onclick="applyFilters()">Применить фильтр</button>
+                </form>
+            </div>a
+            <h2 class="centered-title">Наши бассейны</h2>
+    
+            <div class="pools">
+                <div class="pool-card">
+                    <img src="img/pool1.jpg" alt="Бассейн 'Оазис'">
+                    <div class="pool-info">
+                        <h3>Бассейн "Оазис"</h3>
+                        <p>Крытый бассейн с подогревом, 25 метров, 6 дорожек.</p>
+                        <p>Цена: 500 руб./час</p>
+                        <button class="book-btn" onclick="openBookingForm()">Забронировать</button>
+                    </div>
+                </div>
+                <div class="pool-card">
+                    <img src="img/pool2.jpg" alt="Бассейн 'Волна'">
+                    <div class="pool-info">
+                        <h3>Бассейн "Волна"</h3>
+                        <p>Открытый бассейн, 50 метров, 8 дорожек.</p>
+                        <p>Цена: 700 руб./час</p>
+                        <button class="book-btn" onclick="openBookingForm()">Забронировать</button>
+                    </div>
+                </div>
+                <div class="pool-card">
+                    <img src="img/pool3.jpg" alt="Бассейн 'Дельфин'">
+                    <div class="pool-info">
+                        <h3>Бассейн "Дельфин"</h3>
+                        <p>Детский бассейн, 10 метров, с горкой.</p>
+                        <p>Цена: 300 руб./час</p>
+                        <button class="book-btn" onclick="openBookingForm()">Забронировать</button>
+                    </div>
+                </div>
+            </div>
+            <div id="booking-form" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeBookingForm()">&times;</span>
+                    <h2>Бронирование бассейна</h2>
+                    <form id="bookingForm" onsubmit="submitBooking(event)">
+                        <label for="name">Имя:</label>
+                        <input type="text" id="name" name="name" class="form-item" required>
+                        
+                        <label for="email">Электронная почта:</label>
+                        <input type="email" id="email" name="email" class="form-item" required>
+                        
+                        <label for="date">Дата бронирования:</label>
+                        <input type="date" id="date" name="date" class="form-item" required>
+                        
+                        <label for="time">Время бронирования:</label>
+                        <input type="time" id="time" name="time" class="form-item" required>
+                        
+                        <button type="submit" class="form-button">Подтвердить бронирование</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Сообщение о подтверждении бронирования -->
+            <div id="confirmation-message" class="confirmation hidden">
+                <img src="img/checkwithcircle.png" alt="">
+                <p>Ваше бронирование подтверждено!</p>
+                <button onclick="closeConfirmationMessage()">Закрыть</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Подпишитесь на нашу рассылку</p>
+            <form method="post">
+                <input type="email" name="email" placeholder="Введите ваш email" required>
+                <button type="submit">Подписаться</button>
+            </form>
+            <p>Наш номер: +7(123)-456-78-90</p>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
